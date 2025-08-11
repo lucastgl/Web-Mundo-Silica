@@ -1,103 +1,260 @@
-import Image from "next/image";
+import Link from "next/link"
+import { ArrowRight, CheckCircle, Users, Award, Zap, Star } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Sección 1: Hero */}
+      <section className="relative py-20 md:py-32">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto">
+            <div className="space-y-4">
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+                Innovación que <span className="text-primary">Transforma</span> tu Negocio
+              </h1>
+              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+                Ofrecemos soluciones integrales y productos de alta calidad para impulsar el crecimiento y éxito de tu
+                empresa en el mercado actual.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" asChild>
+                <Link href="/productos">
+                  Ver Productos
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <Link href="/contacto">Contactar</Link>
+              </Button>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Sección 2: Características/Servicios */}
+      <section className="py-20 md:py-32">
+        <div className="container px-4 md:px-6">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">¿Por qué Elegirnos?</h2>
+            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+              Nos destacamos por nuestra experiencia, calidad y compromiso con la excelencia. Además, ofrecemos un asesoramiento personalizado, asegurándonos de entender las necesidades específicas de cada cliente para brindarle la solución perfecta, más allá de simplemente vender un producto.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-3">
+            <Card className="text-center">
+              <CardHeader>
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                  <Users className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle>Experiencia Comprobada</CardTitle>
+                <CardDescription>
+                  Más de 10 años brindando soluciones exitosas a empresas de diversos sectores
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center justify-center">
+                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
+                    Equipo especializado
+                  </li>
+                  <li className="flex items-center justify-center">
+                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
+                    Metodologías probadas
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                  <Award className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle>Calidad Garantizada</CardTitle>
+                <CardDescription>
+                  Productos y servicios que cumplen con los más altos estándares de calidad
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center justify-center">
+                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
+                    Certificaciones ISO
+                  </li>
+                  <li className="flex items-center justify-center">
+                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
+                    Control de calidad riguroso
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                  <Zap className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle>Innovación Constante</CardTitle>
+                <CardDescription>
+                  Siempre a la vanguardia con las últimas tecnologías y tendencias del mercado
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center justify-center">
+                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
+                    I+D+i continuo
+                  </li>
+                  <li className="flex items-center justify-center">
+                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
+                    Tecnología de punta
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Sección de Testimonios */}
+      <section className="py-20 md:py-32 bg-muted/30">
+        <div className="container px-4 md:px-6">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Lo que Dicen Nuestros Clientes
+            </h2>
+            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+              Conoce las experiencias de quienes ya confiaron en nosotros
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <Card>
+              <CardContent className="pt-6">
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground">
+                    "Excelente calidad en las mamparas. El equipo vino a medir, instaló todo perfecto y sin
+                    filtraciones. Muy recomendable, cumplieron con los tiempos prometidos."
+                  </p>
+                  <div className="flex items-center space-x-3">
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <span className="text-sm font-medium">MR</span>
+                    </div>
+                    <div>
+                      <p className="font-medium">María Rodríguez</p>
+                      <p className="text-sm text-muted-foreground">Cliente - CABA</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="pt-6">
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground">
+                    "Hicimos espejos para nuestro gimnasio. Tomaron las medidas sin cargo, nos asesoraron muy bien y el
+                    resultado superó nuestras expectativas. Muy profesionales."
+                  </p>
+                  <div className="flex items-center space-x-3">
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <span className="text-sm font-medium">CG</span>
+                    </div>
+                    <div>
+                      <p className="font-medium">Carlos González</p>
+                      <p className="text-sm text-muted-foreground">Gimnasio FitZone - Morón</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="pt-6">
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground">
+                    "Compramos una mampara corrediza y la enviaron al interior. Llegó perfecta en su embalaje de madera.
+                    El instructivo de instalación muy claro. Excelente servicio."
+                  </p>
+                  <div className="flex items-center space-x-3">
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <span className="text-sm font-medium">LM</span>
+                    </div>
+                    <div>
+                      <p className="font-medium">Laura Martínez</p>
+                      <p className="text-sm text-muted-foreground">Cliente - Córdoba</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Sección 3: Call to Action */}
+      <section className="py-20 md:py-32 bg-muted/50">
+        <div className="container px-4 md:px-6">
+          <div className="text-center space-y-8 max-w-3xl mx-auto">
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">¿Listo para Comenzar?</h2>
+              <p className="text-muted-foreground md:text-xl">
+                Descubre cómo podemos ayudarte a alcanzar tus objetivos empresariales. Contáctanos hoy mismo para una
+                consulta personalizada.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2 max-w-2xl mx-auto">
+              <Card>
+                <CardHeader className="text-center">
+                  <CardTitle>Consulta Gratuita</CardTitle>
+                  <CardDescription>Agenda una reunión sin compromiso para conocer tus necesidades</CardDescription>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <Button asChild className="w-full">
+                    <Link href="/contacto">Agendar Consulta</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader className="text-center">
+                  <CardTitle>Ver Proyectos</CardTitle>
+                  <CardDescription>Explora nuestro portafolio de proyectos exitosos</CardDescription>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <Button variant="outline" asChild className="w-full bg-transparent">
+                    <Link href="/proyectos">Ver Portafolio</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
-  );
+  )
 }
