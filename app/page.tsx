@@ -36,13 +36,13 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" asChild>
-                <Link href="/productos">
+                <Link href="/tienda">
                   Ver Productos
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <Link href="/contacto">Contactar</Link>
+                <Link href="/tienda">Contactar</Link>
               </Button>
             </div>
           </div>
@@ -73,7 +73,7 @@ export default function HomePage() {
                 </div>
                 <CardTitle>Experiencia Comprobada</CardTitle>
                 <CardDescription>
-                  Más de 10 años brindando soluciones exitosas a empresas de
+                  Más de 10 años brindando soluciones exitosas a clientes y empresas de
                   diversos sectores
                 </CardDescription>
               </CardHeader>
@@ -81,11 +81,11 @@ export default function HomePage() {
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center justify-center">
                     <CheckCircle className="mr-2 h-4 w-4 text-[#01959e]" />
-                    Equipo especializado
+                    MercadoLíder Platinum con +1000 ventas
                   </li>
                   <li className="flex items-center justify-center">
                     <CheckCircle className="mr-2 h-4 w-4 text-[#01959e]" />
-                    Metodologías probadas
+                    +30 Proyectos completos
                   </li>
                 </ul>
               </CardContent>
@@ -248,7 +248,7 @@ export default function HomePage() {
                 </CardHeader>
                 <CardContent className="text-center">
                   <Button asChild className="w-full">
-                    <Link href="/contacto">Agendar Consulta</Link>
+                    <Link href="/tienda">Agendar Consulta</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -266,7 +266,7 @@ export default function HomePage() {
                     asChild
                     className="w-full bg-transparent"
                   >
-                    <Link href="/proyectos">Ver Portafolio</Link>
+                    <Link href="/tienda">Ver Portafolio</Link>
                   </Button>
                 </CardContent>
               </Card>

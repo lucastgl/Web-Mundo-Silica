@@ -5,7 +5,7 @@ import LogoMS from "@/public/LogoMS-NBG.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-muted/50 border-t">
+    <footer className="bg-[#D5EAED] border-t">
       <div className="w-full px-4 py-12 md:px-6">
         <div className="grid gap-8 md:grid-cols-4">
           {/* Logo y descripción */}

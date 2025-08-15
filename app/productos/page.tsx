@@ -1,5 +1,5 @@
-import { Package } from "lucide-react"
-import { Button } from "@/components/ui/button" // Import the Button component
+import { Link, Package } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export default function ProductosPage() {
   return (
@@ -9,24 +9,161 @@ export default function ProductosPage() {
         <div className="text-center space-y-4 mb-16">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Nuestros Productos</h1>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-            Descubre nuestra gama completa de productos diseñados para satisfacer todas tus necesidades
+            Descubre nuestra gama completa de productos especializados en vidrios, mamparas y soluciones para el hogar
           </p>
         </div>
 
-        {/* Sección Hogar y Muebles */}
+        {/* Categoría 1: Baño */}
         <section className="mb-16">
           <div className="grid gap-8 md:grid-cols-2 items-center">
-            <div className="space-y-4">
-              <h2 className="text-3xl font-bold">Hogar y Muebles</h2>
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold">Baño</h2>
               <p className="text-muted-foreground text-lg">
-                Descubre nuestra amplia gama de muebles y accesorios para el hogar. Desde muebles de sala y dormitorio
-                hasta elementos decorativos que transformarán tu espacio en un lugar acogedor y funcional.
+                Soluciones completas para transformar tu baño en un espacio funcional y elegante. Desde mamparas de
+                seguridad hasta espejos y accesorios que combinan estética y practicidad.
+              </p>
+
+
+              {/* Otras subcategorías de Baño */}
+              <ul className="space-y-2 text-muted-foreground">
+                <li>• Estantes de vidrio</li>
+                <li>• Espejos para baño</li>
+                <li>• Accesorios y complementos</li>
+              </ul>
+
+              <Button variant="outline" className="mt-4 bg-transparent">
+                <Link href="https://listado.mercadolibre.com.ar/pagina/mundosilicaok/listado/construccion/banos-sanitarios/_PrCategId_AD#client=SEARCH&component_id=menu_corridors&label=Ba%C3%B1os+y+Sanitarios&tracking_id=">Ver más</Link>
+              </Button>
+            </div>
+            <div className="aspect-video rounded-lg overflow-hidden">
+              <img
+                src="/Productos/EspejoYMampara.jpg"
+                alt="Productos para Baño"
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Sección Especial: Mamparas con Galería */}
+        <section className="mb-16 bg-muted/30 rounded-lg p-8">
+          <div className="text-center space-y-4 mb-12">
+            <h2 className="text-3xl font-bold">Mamparas</h2>
+            <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+              Explora nuestra variedad de mamparas diseñadas para cada necesidad. Fabricadas con vidrios de seguridad y
+              herrajes de primera calidad para garantizar durabilidad y elegancia en tu baño.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="text-center space-y-3">
+              <div className="aspect-square rounded-lg overflow-hidden">
+                <img
+                  src="/Productos/MamparaFija.jpg"
+                  alt="Mampara Fija"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <h3 className="font-semibold">Mampara Fija</h3>
+              <p className="text-sm text-muted-foreground">
+                Solución elegante y minimalista para duchas. Vidrio templado de seguridad con acabados premium.
+              </p>
+            </div>
+
+            <div className="text-center space-y-3">
+              <div className="aspect-square rounded-lg overflow-hidden">
+                <img
+                  src="/Productos/MamparaSimpleOscura.jpg"
+                  alt="Mampara Rebatible"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <h3 className="font-semibold">Rebatibles</h3>
+              <p className="text-sm text-muted-foreground">
+                Máxima funcionalidad con apertura hacia adentro o afuera. Ideal para espacios que requieren
+                versatilidad.
+              </p>
+            </div>
+
+            <div className="text-center space-y-3">
+              <div className="aspect-square rounded-lg overflow-hidden">
+                <img
+                  src="/Productos/MamparaSimple.jpg"
+                  alt="Mampara Corrediza"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <h3 className="font-semibold">Corredizas</h3>
+              <p className="text-sm text-muted-foreground">
+                Perfectas para espacios reducidos. Sistema de deslizamiento suave y silencioso con guías de calidad.
+              </p>
+            </div>
+
+            <div className="text-center space-y-3">
+              <div className="aspect-square rounded-lg overflow-hidden">
+                <img
+                  src="/Productos/Box.jpg"
+                  alt="Box de Ducha"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <h3 className="font-semibold">Box</h3>
+              <p className="text-sm text-muted-foreground">
+                Cerramiento completo para ducha. Solución integral que combina funcionalidad y diseño moderno.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <Button variant="outline" className="bg-transparent">
+              <Link href="https://listado.mercadolibre.com.ar/pagina/mundosilicaok/listado/construccion/banos-sanitarios/_PrCategId_AD#client=SEARCH&component_id=menu_corridors&label=Ba%C3%B1os+y+Sanitarios&tracking_id=">Ver todas las mamparas</Link>
+            </Button>
+          </div>
+        </section>
+
+        {/* Categoría 2: Cerramientos */}
+        <section className="mb-16">
+          <div className="grid gap-8 md:grid-cols-2 items-center">
+            <div className="aspect-video rounded-lg overflow-hidden">
+              <img
+                src="/placeholder.svg?height=400&width=600&text=Cerramientos"
+                alt="Cerramientos"
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold">Cerramientos</h2>
+              <p className="text-muted-foreground text-lg">
+                Soluciones arquitectónicas que optimizan espacios y aportan luminosidad natural. Ideales para crear
+                ambientes diferenciados manteniendo la sensación de amplitud.
               </p>
               <ul className="space-y-2 text-muted-foreground">
-                <li>• Muebles de sala y comedor</li>
-                <li>• Dormitorios completos</li>
-                <li>• Accesorios decorativos</li>
-                <li>• Soluciones de almacenamiento</li>
+                <li>• Lucarnas</li>
+                <li>• Divisores de Ambiente</li>
+                <li>• Cerramientos personalizados</li>
+                <li>• Instalación profesional</li>
+              </ul>
+              <Button variant="outline" className="mt-4 bg-transparent">
+                Ver más
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Categoría 3: Vidrios Especiales */}
+        <section className="mb-16 bg-muted/30 rounded-lg p-8">
+          <div className="grid gap-8 md:grid-cols-2 items-center">
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold">Vidrios Especiales</h2>
+              <p className="text-muted-foreground text-lg">
+                Vidrios técnicos de alta calidad para aplicaciones específicas. Cada tipo está diseñado para cumplir con
+                requisitos particulares de resistencia, estética y funcionalidad.
+              </p>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>• Templado - Mayor resistencia y seguridad</li>
+                <li>• Vitrocerámico - Resistente al calor</li>
+                <li>• Off White - Acabado elegante y moderno</li>
+                <li>• Asesoramiento técnico especializado</li>
               </ul>
               <Button variant="outline" className="mt-4 bg-transparent">
                 Ver más
@@ -34,101 +171,111 @@ export default function ProductosPage() {
             </div>
             <div className="aspect-video rounded-lg overflow-hidden">
               <img
-                src="/placeholder.svg?height=400&width=600"
-                alt="Hogar y Muebles"
+                src="/placeholder.svg?height=400&width=600&text=Vidrios+Especiales"
+                alt="Vidrios Especiales"
                 className="object-cover w-full h-full"
               />
             </div>
           </div>
         </section>
 
-        {/* Sección Construcción */}
-        <section className="mb-16 bg-muted/30 rounded-lg p-8">
-          <div className="grid gap-8 md:grid-cols-2 items-center">
-            <div className="aspect-video rounded-lg overflow-hidden md:order-1">
-              <img
-                src="/placeholder.svg?height=400&width=600"
-                alt="Construcción"
-                className="object-cover w-full h-full"
-              />
-            </div>
-            <div className="space-y-4 md:order-2">
-              <h2 className="text-3xl font-bold">Construcción</h2>
-              <p className="text-muted-foreground text-lg">
-                Materiales de construcción de alta calidad para tus proyectos. Contamos con todo lo necesario para
-                construcción residencial, comercial e industrial, garantizando durabilidad y resistencia.
-              </p>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• Materiales de construcción</li>
-                <li>• Herramientas especializadas</li>
-                <li>• Equipos de seguridad</li>
-                <li>• Asesoramiento técnico</li>
-              </ul>
-              <Button variant="outline" className="mt-4 bg-transparent">
-                Ver más
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* Sección Souvenirs */}
+        {/* Categoría 4: Decoración del Hogar */}
         <section className="mb-16">
           <div className="grid gap-8 md:grid-cols-2 items-center">
-            <div className="space-y-4">
-              <h2 className="text-3xl font-bold">Souvenirs</h2>
+            <div className="aspect-video rounded-lg overflow-hidden">
+              <img
+                src="/placeholder.svg?height=400&width=600&text=Decoración+del+Hogar"
+                alt="Decoración del Hogar"
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold">Decoración del Hogar</h2>
               <p className="text-muted-foreground text-lg">
-                Productos únicos y memorables que capturan la esencia de momentos especiales. Ideales para eventos
-                corporativos, turismo y ocasiones especiales que requieren un detalle distintivo.
+                Elementos decorativos que aportan estilo y personalidad a cada ambiente. Espejos diseñados para realzar
+                la belleza de tu hogar con toques únicos y funcionales.
               </p>
+
               <ul className="space-y-2 text-muted-foreground">
-                <li>• Artículos personalizados</li>
-                <li>• Productos regionales</li>
-                <li>• Regalos corporativos</li>
-                <li>• Ediciones especiales</li>
+                <li>• Diseños personalizados</li>
+                <li>• Instalación incluida</li>
+                <li>• Asesoramiento en decoración</li>
               </ul>
+
               <Button variant="outline" className="mt-4 bg-transparent">
                 Ver más
               </Button>
-            </div>
-            <div className="aspect-video rounded-lg overflow-hidden">
-              <img src="/placeholder.svg?height=400&width=600" alt="Souvenirs" className="object-cover w-full h-full" />
             </div>
           </div>
         </section>
 
-        {/* Sección Otros */}
+        {/* Sección Especial: Espejos Decorativos con Galería */}
         <section className="mb-16 bg-muted/30 rounded-lg p-8">
-          <div className="grid gap-8 md:grid-cols-2 items-center">
-            <div className="aspect-video rounded-lg overflow-hidden md:order-1">
-              <img
-                src="/placeholder.svg?height=400&width=600"
-                alt="Otros Productos"
-                className="object-cover w-full h-full"
-              />
-            </div>
-            <div className="space-y-4 md:order-2">
-              <h2 className="text-3xl font-bold">Otros</h2>
-              <p className="text-muted-foreground text-lg">
-                Una variedad de productos y servicios adicionales que complementan nuestra oferta principal. Soluciones
-                versátiles para necesidades específicas y proyectos especiales.
+          <div className="text-center space-y-4 mb-12">
+            <h2 className="text-3xl font-bold">Espejos Decorativos</h2>
+            <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+              Transforma cualquier espacio con nuestros espejos decorativos. Desde soluciones funcionales hasta
+              elementos de diseño que aportan luz y amplitud a tus ambientes.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="text-center space-y-3">
+              <div className="aspect-square rounded-lg overflow-hidden">
+                <img
+                  src="/Productos/EspejoRedondo.jpg"
+                  alt="Espejo para Puerta de Placard"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <h3 className="font-semibold">Espejos para Puerta de Placard</h3>
+              <p className="text-sm text-muted-foreground">
+                Maximiza el espacio y la funcionalidad. Espejos de cuerpo entero perfectos para dormitorios y
+                vestidores.
               </p>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• Productos especializados</li>
-                <li>• Servicios personalizados</li>
-                <li>• Soluciones a medida</li>
-                <li>• Consultoría especializada</li>
-              </ul>
-              <Button variant="outline" className="mt-4 bg-transparent">
-                Ver más
-              </Button>
             </div>
+
+            <div className="text-center space-y-3">
+              <div className="aspect-square rounded-lg overflow-hidden">
+                <img
+                  src="/Productos/EspejoConLed.jpg"
+                  alt="Espejo con Led"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <h3 className="font-semibold">Espejos con Led</h3>
+              <p className="text-sm text-muted-foreground">
+                Iluminación integrada para un toque moderno. Ideales para baños principales y tocadores elegantes.
+              </p>
+            </div>
+
+            <div className="text-center space-y-3">
+              <div className="aspect-square rounded-lg overflow-hidden">
+                <img
+                  src="/Productos/EspejoConForma.jpg"
+                  alt="Espejo con Formas"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <h3 className="font-semibold">Espejos con Formas</h3>
+              <p className="text-sm text-muted-foreground">
+                Diseños únicos y personalizados. Redondos, ovalados o formas especiales para destacar en cualquier
+                ambiente.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <Button variant="outline" className="bg-transparent">
+              Ver todos los espejos
+            </Button>
           </div>
         </section>
 
         <div className="text-center mt-16">
           <div className="inline-flex items-center space-x-2 text-muted-foreground">
             <Package className="h-5 w-5" />
-            <span>¿No encuentras lo que buscas? Contáctanos para soluciones personalizadas</span>
+            <span>¿Necesitas un producto específico? Contáctanos para soluciones personalizadas</span>
           </div>
         </div>
       </div>

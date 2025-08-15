@@ -1,0 +1,63 @@
+[
+    {
+      "Proyecto": "Edificio Concepcion",
+      "Descripcion": "Asesoramos y proveemos mamparas, espejos y cerramientos personalizados para unidades residenciales y comerciales, con materiales premium que garantizan durabilidad, seguridad y un acabado impecable.",
+      "Destacados": [
+        "Mamparas de baño elegantes y funcionales",
+        "Espejos a medida para estilo y luminosidad",
+        "Cerramientos resistentes que optimizan espacio",
+        "Soluciones personalizadas para cada unidad",
+        "Materiales de alta calidad y seguridad",
+        "Acabado impecable que inspira confianza"
+      ],
+      "Fotos": [
+        "/Proyectos/EdificioConcepcion.gif"
+      ]
+    },
+    {
+      "Proyecto": "Pilar Golf Club",
+      "Descripcion": "Diseñamos e instalamos mamparas y espejos que combinan modernidad y elegancia, aportando funcionalidad y estética a los espacios para crear ambientes acogedores y personalizados.",
+      "Destacados": [
+        "Diseños personalizados únicos para cada residencia",
+        "Materiales premium de primera calidad",
+        "Mamparas que dividen espacios con estilo",
+        "Espejos que reflejan personalidad y elegancia",
+        "Optimización del espacio con practicidad",
+        "Acabados estéticos y fáciles de mantener"
+      ],
+      "Fotos": [
+        "/Proyectos/PilarGolfClub.jpg"
+      ]
+    },
+    {
+      "Proyecto": "Barrio San Sebastian",
+      "Descripcion": "Colaboramos con arquitectos para crear mamparas y espejos que armonizan con la estética del barrio, mejorando la funcionalidad y aspecto visual de áreas comunes con un estilo exclusivo y acogedor.",
+      "Destacados": [
+        "Diseño integrado con arquitectura del barrio",
+        "Mamparas y espejos personalizados",
+        "Mejora funcional y estética en áreas comunes",
+        "Ambiente exclusivo para residentes e invitados",
+        "Soluciones que combinan funcionalidad y estilo",
+        "Creación de espacios atractivos y acogedores"
+      ],
+      "Fotos": [
+        "/Proyectos/BarrioSanSebastian.jpg"
+      ]
+    },
+    {
+      "Proyecto": "Torre Quantum",
+      "Descripcion": "Diseñamos e instalamos mamparas y espejos para baños que reflejan modernidad e innovación, ofreciendo funcionalidad y estilo contemporáneo para un ambiente fresco y dinámico de relajación y privacidad.",
+      "Destacados": [
+        "Diseño moderno y funcional para baños",
+        "Soluciones personalizadas innovadoras",
+        "Ambiente fresco y dinámico para relajación",
+        "Complementa el diseño contemporáneo del espacio",
+        "Productos que satisfacen necesidades actuales",
+        "Privacidad y estilo en ambientes modernos"
+      ],
+      "Fotos": [
+        "/Proyectos/TorreQuantum.jpg"
+      ]
+    }
+  ]
+  
