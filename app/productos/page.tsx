@@ -1,5 +1,6 @@
-import { Link, Package } from "lucide-react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function ProductosPage() {
   return (
@@ -31,13 +32,17 @@ export default function ProductosPage() {
                 <li>• Accesorios y complementos</li>
               </ul>
 
-              <Button variant="outline" className="mt-4 bg-transparent">
-                <Link href="https://listado.mercadolibre.com.ar/pagina/mundosilicaok/listado/construccion/banos-sanitarios/_PrCategId_AD#client=SEARCH&component_id=menu_corridors&label=Ba%C3%B1os+y+Sanitarios&tracking_id=">Ver más</Link>
+              <Button variant="outline" className="mt-4 bg-transparent" asChild>
+                <Link target="_blank" href="https://listado.mercadolibre.com.ar/pagina/mundosilicaok/listado/construccion/banos-sanitarios/_PrCategId_AD#client=SEARCH&component_id=menu_corridors&label=Ba%C3%B1os+y+Sanitarios&tracking_id=">
+                  Ver más
+                </Link>
               </Button>
             </div>
             <div className="aspect-video rounded-lg overflow-hidden">
-              <img
+              <Image
                 src="/Productos/EspejoYMampara.jpg"
+                width={600}
+                height={400}
                 alt="Productos para Baño"
                 className="object-cover w-full h-full"
               />
@@ -46,7 +51,7 @@ export default function ProductosPage() {
         </section>
 
         {/* Sección Especial: Mamparas con Galería */}
-        <section className="mb-16 bg-muted/30 rounded-lg p-8">
+        <section className="mb-16 bg-[#D5EAED]/30 rounded-lg p-8">
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-3xl font-bold">Mamparas</h2>
             <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
@@ -58,8 +63,10 @@ export default function ProductosPage() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <div className="text-center space-y-3">
               <div className="aspect-square rounded-lg overflow-hidden">
-                <img
+                <Image
                   src="/Productos/MamparaFija.jpg"
+                  width={600}
+                  height={400}
                   alt="Mampara Fija"
                   className="object-cover w-full h-full"
                 />
@@ -72,8 +79,10 @@ export default function ProductosPage() {
 
             <div className="text-center space-y-3">
               <div className="aspect-square rounded-lg overflow-hidden">
-                <img
-                  src="/Productos/MamparaSimpleOscura.jpg"
+                <Image
+                  src="/Productos/Mamparas/rebatible.jpg"
+                  width={600}
+                  height={400}
                   alt="Mampara Rebatible"
                   className="object-cover w-full h-full"
                 />
@@ -87,8 +96,10 @@ export default function ProductosPage() {
 
             <div className="text-center space-y-3">
               <div className="aspect-square rounded-lg overflow-hidden">
-                <img
-                  src="/Productos/MamparaSimple.jpg"
+                <Image
+                  src="/Productos/Mamparas/corredizo.jpg"
+                  width={600}
+                  height={400}
                   alt="Mampara Corrediza"
                   className="object-cover w-full h-full"
                 />
@@ -101,8 +112,10 @@ export default function ProductosPage() {
 
             <div className="text-center space-y-3">
               <div className="aspect-square rounded-lg overflow-hidden">
-                <img
-                  src="/Productos/Box.jpg"
+                <Image
+                  src="/Productos/Mamparas/box.jpeg"
+                  width={600}
+                  height={400}
                   alt="Box de Ducha"
                   className="object-cover w-full h-full"
                 />
@@ -115,8 +128,10 @@ export default function ProductosPage() {
           </div>
 
           <div className="text-center mt-8">
-            <Button variant="outline" className="bg-transparent">
-              <Link href="https://listado.mercadolibre.com.ar/pagina/mundosilicaok/listado/construccion/banos-sanitarios/_PrCategId_AD#client=SEARCH&component_id=menu_corridors&label=Ba%C3%B1os+y+Sanitarios&tracking_id=">Ver todas las mamparas</Link>
+            <Button variant="outline" className="bg-transparent" asChild>
+              <Link target="_blank" href="https://listado.mercadolibre.com.ar/pagina/mundosilicaok/listado/construccion/banos-sanitarios/_PrCategId_AD#client=SEARCH&component_id=menu_corridors&label=Ba%C3%B1os+y+Sanitarios&tracking_id=">
+                Ver todas las mamparas
+              </Link>
             </Button>
           </div>
         </section>
@@ -125,8 +140,10 @@ export default function ProductosPage() {
         <section className="mb-16">
           <div className="grid gap-8 md:grid-cols-2 items-center">
             <div className="aspect-video rounded-lg overflow-hidden">
-              <img
-                src="/placeholder.svg?height=400&width=600&text=Cerramientos"
+              <Image
+                src="/Productos/Cerramiento/frente.jpg"
+                width={600}
+                height={400}
                 alt="Cerramientos"
                 className="object-cover w-full h-full"
               />
@@ -143,8 +160,10 @@ export default function ProductosPage() {
                 <li>• Cerramientos personalizados</li>
                 <li>• Instalación profesional</li>
               </ul>
-              <Button variant="outline" className="mt-4 bg-transparent">
-                Ver más
+              <Button variant="outline" className="mt-4 bg-transparent" asChild>
+                <Link href="/contacto">
+                  Ver más
+                </Link>
               </Button>
             </div>
           </div>
@@ -165,13 +184,17 @@ export default function ProductosPage() {
                 <li>• Off White - Acabado elegante y moderno</li>
                 <li>• Asesoramiento técnico especializado</li>
               </ul>
-              <Button variant="outline" className="mt-4 bg-transparent">
-                Ver más
+              <Button variant="outline" className="mt-4 bg-transparent" asChild>
+                <Link href="/contacto">
+                  Ver más
+                </Link>
               </Button>
             </div>
             <div className="aspect-video rounded-lg overflow-hidden">
-              <img
-                src="/placeholder.svg?height=400&width=600&text=Vidrios+Especiales"
+              <Image
+                src="/Productos/VidriosEspeciales/vidriosEspeciales.jpg"
+                width={600}
+                height={400}
                 alt="Vidrios Especiales"
                 className="object-cover w-full h-full"
               />
@@ -183,8 +206,10 @@ export default function ProductosPage() {
         <section className="mb-16">
           <div className="grid gap-8 md:grid-cols-2 items-center">
             <div className="aspect-video rounded-lg overflow-hidden">
-              <img
-                src="/placeholder.svg?height=400&width=600&text=Decoración+del+Hogar"
+              <Image
+                src="/Productos/DecoracionHogar/principalB.jpg"
+                width={600}
+                height={400}
                 alt="Decoración del Hogar"
                 className="object-cover w-full h-full"
               />
@@ -202,15 +227,17 @@ export default function ProductosPage() {
                 <li>• Asesoramiento en decoración</li>
               </ul>
 
-              <Button variant="outline" className="mt-4 bg-transparent">
-                Ver más
+              <Button variant="outline" className="mt-4 bg-transparent" asChild>
+                <Link target="_blank" href="https://listado.mercadolibre.com.ar/pagina/mundosilicaok/listado/hogar-muebles-jardin/muebles-hogar/_PrCategId_AD#client=SEARCH&component_id=menu_corridors&label=Muebles+para+el+Hogar&tracking_id=">
+                  Ver más
+                </Link>
               </Button>
             </div>
           </div>
         </section>
 
         {/* Sección Especial: Espejos Decorativos con Galería */}
-        <section className="mb-16 bg-muted/30 rounded-lg p-8">
+        <section className="mb-16 bg-[#D5EAED]/30 rounded-lg p-8">
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-3xl font-bold">Espejos Decorativos</h2>
             <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
@@ -222,8 +249,10 @@ export default function ProductosPage() {
           <div className="grid gap-6 md:grid-cols-3">
             <div className="text-center space-y-3">
               <div className="aspect-square rounded-lg overflow-hidden">
-                <img
-                  src="/Productos/EspejoRedondo.jpg"
+                <Image
+                  width={600}
+                  height={400}
+                  src="/Productos/DecoracionHogar/puertaPlacard.jpg"
                   alt="Espejo para Puerta de Placard"
                   className="object-cover w-full h-full"
                 />
@@ -237,8 +266,10 @@ export default function ProductosPage() {
 
             <div className="text-center space-y-3">
               <div className="aspect-square rounded-lg overflow-hidden">
-                <img
-                  src="/Productos/EspejoConLed.jpg"
+                <Image
+                  width={600}
+                  height={400}
+                  src="/Productos/DecoracionHogar/EspejoConLed.jpg"
                   alt="Espejo con Led"
                   className="object-cover w-full h-full"
                 />
@@ -251,8 +282,10 @@ export default function ProductosPage() {
 
             <div className="text-center space-y-3">
               <div className="aspect-square rounded-lg overflow-hidden">
-                <img
-                  src="/Productos/EspejoConForma.jpg"
+                <Image
+                  width={600}
+                  height={400}
+                  src="/Productos/DecoracionHogar/EspejoConForma.jpg"
                   alt="Espejo con Formas"
                   className="object-cover w-full h-full"
                 />
@@ -272,12 +305,6 @@ export default function ProductosPage() {
           </div>
         </section>
 
-        <div className="text-center mt-16">
-          <div className="inline-flex items-center space-x-2 text-muted-foreground">
-            <Package className="h-5 w-5" />
-            <span>¿Necesitas un producto específico? Contáctanos para soluciones personalizadas</span>
-          </div>
-        </div>
       </div>
 
     </div>

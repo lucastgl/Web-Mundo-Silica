@@ -37,10 +37,7 @@ export default function ContactoPage() {
 
       <div className="container px-4 py-16 md:px-6 md:py-24">
         <div className="text-center space-y-4 mb-16">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Contáctanos</h1>
-          <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-            Estamos aquí para ayudarte. Ponte en contacto con nosotros y te responderemos lo antes posible
-          </p>
+          <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Contactanos</h2>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2">
@@ -53,8 +50,8 @@ export default function ContactoPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                    <Mail className="h-5 w-5 text-primary" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#01959e]">
+                    <Mail className="h-5 w-5 text-white" />
                   </div>
                   <div>
                     <p className="font-medium">Email</p>
@@ -63,8 +60,8 @@ export default function ContactoPage() {
                 </div>
 
                 <div className="flex items-center space-x-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                    <Phone className="h-5 w-5 text-primary" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#01959e]">
+                    <Phone className="h-5 w-5 text-white" />
                   </div>
                   <div>
                     <p className="font-medium">Teléfono</p>
@@ -73,8 +70,8 @@ export default function ContactoPage() {
                 </div>
 
                 <div className="flex items-center space-x-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                    <MapPin className="h-5 w-5 text-primary" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#01959e]">
+                    <MapPin className="h-5 w-5 text-white" />
                   </div>
                   <div>
                     <p className="font-medium">Dirección</p>
@@ -87,8 +84,8 @@ export default function ContactoPage() {
                 </div>
 
                 <div className="flex items-center space-x-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                    <Clock className="h-5 w-5 text-primary" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#01959e]">
+                    <Clock className="h-5 w-5 text-white" />
                   </div>
                   <div>
                     <p className="font-medium">Horario de Atención</p>
@@ -140,7 +137,7 @@ export default function ContactoPage() {
                     <Label htmlFor="telefono">Teléfono</Label>
                     <Input
                       id="telefono"
-                      placeholder="+1 (555) 123-4567"
+                      placeholder="+54 11 6123-4567"
                       value={formData.telefono}
                       onChange={(e) => handleChange("telefono", e.target.value)}
                     />

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Users, Award, Zap, Star } from "lucide-react";
+import { CheckCircle, Users, Award, Zap, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -15,6 +15,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Image from 'next/image'
 
 import clientes from "@/mocks/clientes.json";
 
@@ -35,14 +36,13 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" asChild>
-                <Link href="/tienda">
+              <Button size="lg" variant="default" asChild>
+                <Link href="/productos">
                   Ver Productos
-                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <Link href="/tienda">Contactar</Link>
+                <Link href="/contacto">Contactar</Link>
               </Button>
             </div>
           </div>
@@ -73,7 +73,7 @@ export default function HomePage() {
                 </div>
                 <CardTitle>Experiencia Comprobada</CardTitle>
                 <CardDescription>
-                  Más de 10 años brindando soluciones exitosas a clientes y empresas de
+                  Más de 15 años brindando soluciones exitosas a clientes y empresas de
                   diversos sectores
                 </CardDescription>
               </CardHeader>
@@ -106,11 +106,11 @@ export default function HomePage() {
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center justify-center">
                     <CheckCircle className="mr-2 h-4 w-4 text-[#01959e]" />
-                    Certificaciones ISO
+                    Procesos de fabricación rigurosos
                   </li>
                   <li className="flex items-center justify-center">
                     <CheckCircle className="mr-2 h-4 w-4 text-[#01959e]" />
-                    Control de calidad riguroso
+                    Control de calidad constante
                   </li>
                 </ul>
               </CardContent>
@@ -131,11 +131,11 @@ export default function HomePage() {
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center justify-center">
                     <CheckCircle className="mr-2 h-4 w-4 text-[#01959e]" />
-                    I+D+i continuo
+                    Nos adaptamos a las necesidades de nuestros clientes
                   </li>
                   <li className="flex items-center justify-center">
                     <CheckCircle className="mr-2 h-4 w-4 text-[#01959e]" />
-                    Tecnología de punta
+                    Ofrecemos soluciones personalizadas
                   </li>
                 </ul>
               </CardContent>
@@ -222,8 +222,21 @@ export default function HomePage() {
       </section>
 
       {/* Sección 3: Call to Action */}
-      <section className="py-20 md:py-32 bg-gradient-to-r from-[#01959e] via-white to-white">
-        <div className="px-4 md:px-6 w-full">
+      <section className="py-20 md:py-32 relative">
+        {/* Imagen de fondo de las oficinas */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/Oficinas.webp"
+            alt="Oficinas de Mundo Silica"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Overlay de atenuación con blanco al 75% */}
+          <div className="absolute inset-0 bg-white/75"></div>
+        </div>
+        
+        <div className="relative z-10 px-4 md:px-6 w-full">
           
           <div className="text-center space-y-8 max-w-3xl mx-auto">
             <div className="space-y-4">
@@ -248,7 +261,7 @@ export default function HomePage() {
                 </CardHeader>
                 <CardContent className="text-center">
                   <Button asChild className="w-full">
-                    <Link href="/tienda">Agendar Consulta</Link>
+                    <Link href="/contacto">Agendar Consulta</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -266,7 +279,7 @@ export default function HomePage() {
                     asChild
                     className="w-full bg-transparent"
                   >
-                    <Link href="/tienda">Ver Portafolio</Link>
+                    <Link href="/proyectos">Ver Portafolio</Link>
                   </Button>
                 </CardContent>
               </Card>

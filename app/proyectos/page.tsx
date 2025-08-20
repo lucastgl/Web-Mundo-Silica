@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import proyectos from "@/mocks/proyectos.json"
 
@@ -20,14 +21,15 @@ export default function ProyectosPage() {
           const titulo = proyecto.Proyecto ?? "Proyecto"
           const descripcion = proyecto.Descripcion ?? ""
           const destacados: string[] = Array.isArray(proyecto.Destacados) ? proyecto.Destacados : []
-          const textoImagen = encodeURIComponent(titulo)
 
           return (
             <section key={`${titulo}-${index}`} className={`mb-16 ${esFondoSuave ? "bg-[#D5EAED] rounded-lg p-8" : ""}`}>
               <div className="grid gap-8 md:grid-cols-2 items-center">
                 {/* Imagen */}
                 <div className={`aspect-video rounded-lg overflow-hidden ${imagenPrimero ? "md:col-start-2 md:row-start-1" : ""}`}>
-                  <img
+                  <Image
+                    width={600}
+                    height={400}
                     src={proyecto.Fotos[0]}
                     alt={titulo}
                     className="object-cover w-full h-full"
