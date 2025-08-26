@@ -20,6 +20,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/Oficinas.webp"
+          type="image/webp"
+        />
+      </head>
       <body className={`${inter.className} antialiased min-h-screen flex flex-col`} suppressHydrationWarning={true}>
         <Navbar />
         <main className="flex-1 w-full flex justify-center">

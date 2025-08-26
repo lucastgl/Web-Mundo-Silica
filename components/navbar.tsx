@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Menu, Building2 } from "lucide-react"
+import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import Image from "next/image"
@@ -12,12 +12,12 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navItems = [
-    { name: "Inicio", href: "/" },
-    { name: "Nosotros", href: "/nosotros" },
-    { name: "Productos", href: "/productos" },
-    { name: "Proyectos", href: "/proyectos" },
-    { name: "Tienda", href: "https://www.mercadolibre.com.ar/pagina/mundosilicaok#client=SEARCH&component_id=menu_home&label=Inicio&tracking_id=" },
-    { name: "Contacto", href: "/contacto" },
+    { name: "Inicio", href: "/", target: "_self" },
+    { name: "Nosotros", href: "/nosotros", target: "_self" },
+    { name: "Productos", href: "/productos", target: "_self" },
+    { name: "Proyectos", href: "/proyectos", target: "_self" },
+    { name: "Tienda", href: "https://www.mercadolibre.com.ar/pagina/mundosilicaok#client=SEARCH&component_id=menu_home&label=Inicio&tracking_id=", target: "_blank" },
+    { name: "Contacto", href: "/contacto", target: "_self" },
   ]
 
   return (
@@ -31,7 +31,12 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
-            <Link key={item.name} href={item.href} className="text-sm font-medium transition-colors hover:text-primary">
+            <Link 
+              key={item.name} 
+              href={item.href} 
+              target={item.target}
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
               {item.name}
             </Link>
           ))}
@@ -53,6 +58,7 @@ export default function Navbar() {
                   href={item.href}
                   className="text-lg font-medium transition-colors hover:text-primary"
                   onClick={() => setIsOpen(false)}
+                  target={item.target}
                 >
                   {item.name}
                 </Link>

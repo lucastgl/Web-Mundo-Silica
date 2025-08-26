@@ -4,9 +4,9 @@ import Image from "next/image"
 
 export default function ProductosPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#E6FFFF]">
 
-      <div className="container px-4 py-16 md:px-6 md:py-24">
+      <div className="px-4 py-16 md:px-35 md:py-24">
         <div className="text-center space-y-4 mb-16">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Nuestros Productos</h1>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
@@ -51,7 +51,7 @@ export default function ProductosPage() {
         </section>
 
         {/* Sección Especial: Mamparas con Galería */}
-        <section className="mb-16 bg-[#D5EAED]/30 rounded-lg p-8">
+        <section className="mb-16 bg-white rounded-lg p-8">
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-3xl font-bold">Mamparas</h2>
             <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
@@ -237,7 +237,7 @@ export default function ProductosPage() {
         </section>
 
         {/* Sección Especial: Espejos Decorativos con Galería */}
-        <section className="mb-16 bg-[#D5EAED]/30 rounded-lg p-8">
+        <section className="mb-16 bg-white rounded-lg p-8">
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-3xl font-bold">Espejos Decorativos</h2>
             <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
@@ -299,8 +299,10 @@ export default function ProductosPage() {
           </div>
 
           <div className="text-center mt-8">
-            <Button variant="outline" className="bg-transparent">
-              Ver todos los espejos
+            <Button variant="outline" className="bg-transparent" asChild>
+              <Link target="_blank" href="https://listado.mercadolibre.com.ar/pagina/mundosilicaok/listado/hogar-muebles-jardin/adornos-decoracion-hogar/_PrCategId_AD#client=HOME&component_id=menu_corridors&label=Adornos+y+Decoraci%C3%B3n+del+Hogar&tracking_id=c501a3be-46c7-49a0-ac36-4a79e953bdb9&global_position=1 ">
+                Ver todos los espejos
+              </Link>
             </Button>
           </div>
         </section>

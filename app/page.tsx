@@ -24,7 +24,7 @@ export default function HomePage() {
     <div className="min-h-screen w-full flex-col justify-center items-center">
 
       {/* Sección 1: Hero */}
-      <section className="relative py-20 md:py-32 w-full flex justify-center items-center bg-gradient-to-r from-white via-white to-[#01959e]">
+      <section className="relative py-20 md:py-32 w-full flex justify-center items-center bg-gradient-to-r from-[#E6FFFF] via-[#E6FFFF] to-[#01959e]">
         <div className="container px-4 md:px-6 ">
           <div className="flex flex-col items-start text-start space-y-8 max-w-4xl">
             <div className="space-y-4">
@@ -50,7 +50,7 @@ export default function HomePage() {
       </section>
 
       {/* Sección 2: Características/Servicios */}
-      <section className="py-20 md:py-32 flex justify-center items-center bg-gradient-to-r from-white via-white to-[#01959e]">
+      <section className="py-20 md:py-32 flex justify-center items-center bg-gradient-to-r from-[#E6FFFF] via-[#E6FFFF] to-[#01959e]">
         <div className="container px-4 md:px-6">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -145,7 +145,7 @@ export default function HomePage() {
       </section>
 
       {/* Sección de Testimonios */}
-      <section className="py-20 md:py-32 bg-white flex justify-center items-center">
+      <section className="py-20 md:py-32  bg-gradient-to-r from-[#E6FFFF] via-[#E6FFFF] to-[#01959e] flex justify-center items-center">
         <div className="container px-4 md:px-6 w-full">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -231,6 +231,10 @@ export default function HomePage() {
             fill
             className="object-cover"
             priority
+            quality={85}
+            sizes="100vw"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
           />
           {/* Overlay de atenuación con blanco al 75% */}
           <div className="absolute inset-0 bg-white/75"></div>

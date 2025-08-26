@@ -68,23 +68,32 @@ export default function Footer() {
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4" />
-                <span>info@empresa.com</span>
+                <span>mundosilica.empresa@outlook.com</span>
               </div>
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Phone className="h-4 w-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>+54 11 7648-0361</span>
+              </div>
+              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                <Phone className="h-4 w-4" />
+                <span>7707-6505</span>
               </div>
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4" />
-                <span>Ciudad, País</span>
+                <span>Pola 240 - CP 1708, Morón, Buenos Aires, Argentina</span>
               </div>
             </div>
           </div>
         </div>
 
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 Empresa. Todos los derechos reservados.</p>
+          <p>&copy; 2025 Mundo Silica. Todos los derechos reservados.</p>
         </div>
+      </div>
+      <div className="w-full h-10 bg-white flex justify-center items-center">
+        <p className="text-sm text-muted-foreground">
+          <span className="font-bold">Desarrollado por Lucas Garcia Lauman</span> - contacto: lucastgarcialauman@gmail.com
+        </p>
       </div>
     </footer>
   );
