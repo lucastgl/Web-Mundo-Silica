@@ -1,4 +1,3 @@
-import Taller from "@/public/Taller.webp";
 import Image from "next/image";
 
 export default function NosotrosPage() {
@@ -7,8 +6,8 @@ export default function NosotrosPage() {
       {/* Imagen de fondo - solo visible en desktop */}
       <div className="absolute inset-0 w-full h-full z-0 hidden md:block">
         <Image
-          src={Taller}
-          alt="Taller de Mundo Silica"
+          src="/Oficinas.webp"
+          alt="Mundo Silica"
           fill
           className="object-cover w-full h-full"
           priority

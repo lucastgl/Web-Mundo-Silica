@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
                 telefono,
                 asunto,
                 mensaje,
-            }),
+            }) as React.ReactElement,
         });
 
         console.log("Email enviado:", data);
