@@ -181,7 +181,7 @@ export default function ProductosPage() {
               <ul className="space-y-2 text-muted-foreground">
                 <li>• Templado - Mayor resistencia y seguridad</li>
                 <li>• Vitrocerámico - Resistente al calor</li>
-                <li>• Off White - Acabado elegante y moderno</li>
+                <li>• Optiwhite - Vidrio extra claro</li>
                 <li>• Asesoramiento técnico especializado</li>
               </ul>
               <Button variant="outline" className="mt-4 bg-transparent" asChild>

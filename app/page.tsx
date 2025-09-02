@@ -15,14 +15,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Image from 'next/image'
+import Image from "next/image";
 
 import clientes from "@/mocks/clientes.json";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen w-full flex-col justify-center items-center">
-
       {/* Sección 1: Hero */}
       <section className="relative py-20 md:py-32 w-full flex justify-center items-center bg-gradient-to-r from-[#E6FFFF] via-[#E6FFFF] to-[#01959e]">
         <div className="container px-4 md:px-6 ">
@@ -37,9 +36,7 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" variant="default" asChild>
-                <Link href="/productos">
-                  Ver Productos
-                </Link>
+                <Link href="/productos">Ver Productos</Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
                 <Link href="/contacto">Contactar</Link>
@@ -73,8 +70,8 @@ export default function HomePage() {
                 </div>
                 <CardTitle>Experiencia Comprobada</CardTitle>
                 <CardDescription>
-                  Más de 15 años brindando soluciones exitosas a clientes y empresas de
-                  diversos sectores
+                  Más de 15 años brindando soluciones exitosas a clientes y
+                  empresas de diversos sectores
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -149,11 +146,8 @@ export default function HomePage() {
         <div className="container px-4 md:px-6 w-full">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Lo que Dicen Nuestros Clientes
-            </h2>
-            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
               Conoce las experiencias de quienes ya confiaron en nosotros
-            </p>
+            </h2>
           </div>
           <Carousel>
             <CarouselContent>
@@ -175,8 +169,14 @@ export default function HomePage() {
                     .join("") || "CL";
 
                 return (
-                  <CarouselItem key={`${nombre}-${index}`} className="md:basis-1/2 lg:basis-1/3">
-                    <Card key={`${nombre}-${index}`} className="border border-[#18929a]">
+                  <CarouselItem
+                    key={`${nombre}-${index}`}
+                    className="md:basis-1/2 lg:basis-1/3"
+                  >
+                    <Card
+                      key={`${nombre}-${index}`}
+                      className="border border-[#18929a]"
+                    >
                       <CardContent className="pt-6">
                         <div className="space-y-4">
                           <div className="flex items-center space-x-3">
@@ -226,7 +226,7 @@ export default function HomePage() {
         {/* Imagen de fondo de las oficinas */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/Oficinas.webp"
+            src="/CTA.webp"
             alt="Oficinas de Mundo Silica"
             fill
             className="object-cover"
@@ -239,18 +239,16 @@ export default function HomePage() {
           {/* Overlay de atenuación con blanco al 75% */}
           <div className="absolute inset-0 bg-white/75"></div>
         </div>
-        
+
         <div className="relative z-10 px-4 md:px-6 w-full">
-          
           <div className="text-center space-y-8 max-w-3xl mx-auto">
             <div className="space-y-4">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 ¿Listo para Comenzar?
               </h2>
               <p className="md:text-xl">
-                Descubre cómo podemos ayudarte a alcanzar tus objetivos
-                empresariales. Contáctanos hoy mismo para una consulta
-                personalizada.
+                Descubrí cómo podemos ayudarte a alcanzar tus objetivos hacer
+                realidad tus ideas y planificar tus espacios.
               </p>
             </div>
 
@@ -288,7 +286,6 @@ export default function HomePage() {
                 </CardContent>
               </Card>
             </div>
-
           </div>
         </div>
       </section>

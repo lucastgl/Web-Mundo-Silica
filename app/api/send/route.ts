@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
 
         const data = await resend.emails.send({
             from: "Mundo Silica <onboarding@resend.dev>",
-            to: "Mundosilica.empresa@outlook.com",
+            to: "Mundosilica.ok@gmail.com",
             subject: `Nueva consulta: ${asunto} - ${nombre}`,
             react: EmailTemplate({
                 nombre,

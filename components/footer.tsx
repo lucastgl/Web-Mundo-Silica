@@ -14,7 +14,7 @@ export default function Footer() {
               <Image src={LogoMS.src} alt="Logo" width={100} height={100} />
             </Link>
             <p className="text-sm text-muted-foreground">
-              Soluciones innovadoras para el crecimiento de tu negocio.
+              Hacemos tu imaginación realidad en cristal.
             </p>
           </div>
 
@@ -68,7 +68,7 @@ export default function Footer() {
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4" />
-                <span>mundosilica.empresa@outlook.com</span>
+                <span>Mundosilica.ok@gmail.com</span>
               </div>
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Phone className="h-4 w-4" />
@@ -92,7 +92,10 @@ export default function Footer() {
       </div>
       <div className="w-full h-10 bg-white flex justify-center items-center">
         <p className="text-sm text-muted-foreground">
-          <span className="font-bold">Desarrollado por Lucas Garcia Lauman</span> - contacto: lucastgarcialauman@gmail.com
+          <span className="font-bold">
+            Desarrollado por Lucas Garcia Lauman
+          </span>{" "}
+          - contacto: lucastgarcialauman@gmail.com
         </p>
       </div>
     </footer>
