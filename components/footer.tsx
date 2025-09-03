@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
 import LogoMS from "@/public/LogoMS-NBG.png";
+import FacebookIcon from "@/public/svg/FacebookIcon";
+import InstagramIcon from "@/public/svg/InstagramIcon";
 
 export default function Footer() {
   return (
@@ -82,6 +84,27 @@ export default function Footer() {
                 <MapPin className="h-4 w-4" />
                 <span>Pola 240 - CP 1708, Morón, Buenos Aires, Argentina</span>
               </div>
+              
+              {/* Redes sociales */}
+              <div className="flex space-x-4 mt-4">
+                <Link
+                  href="https://www.facebook.com/mundosilica.ok"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground"
+                >
+                  <FacebookIcon width={24} height={24} />
+                </Link>
+                <Link
+                  href="https://www.instagram.com/mundosilica.ok/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground"
+                >
+                  <InstagramIcon width={25} height={25} />
+                </Link>
+              </div>
+              
             </div>
           </div>
         </div>

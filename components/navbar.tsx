@@ -50,13 +50,13 @@ export default function Navbar() {
               <span className="sr-only">Abrir menú</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-            <div className="flex flex-col space-y-4 mt-6">
+          <SheetContent side="right" className="w-[300px] sm:w-[400px] pt-6">
+            <div className="flex flex-col space-y-4 mt-3">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-lg font-medium transition-colors hover:text-primary"
+                  className="text-lg font-medium transition-colors hover:text-primary pl-2 border-b border-gray-200"
                   onClick={() => setIsOpen(false)}
                   target={item.target}
                 >

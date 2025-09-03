@@ -170,7 +170,7 @@ export default function ProductosPage() {
         </section>
 
         {/* Categoría 3: Vidrios Especiales */}
-        <section className="mb-16 bg-muted/30 rounded-lg p-8">
+        <section className="mb-16 bg-white rounded-lg p-8">
           <div className="grid gap-8 md:grid-cols-2 items-center">
             <div className="space-y-4">
               <h2 className="text-3xl font-bold">Vidrios Especiales</h2>

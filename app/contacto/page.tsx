@@ -3,6 +3,9 @@
 import type React from "react";
 import { useState } from "react";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+import FacebookIcon from "@/public/svg/FacebookIcon";
+import InstagramIcon from "@/public/svg/InstagramIcon";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -135,10 +138,10 @@ export default function ContactoPage() {
           </h2>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-stretch">
           {/* Información de contacto */}
-          <div className="space-y-6">
-            <Card>
+          <div className="space-y-6 flex flex-col">
+            <Card className="flex-1">
               <CardHeader>
                 <CardTitle>Información de Contacto</CardTitle>
                 <CardDescription>
@@ -153,7 +156,7 @@ export default function ContactoPage() {
                   <div>
                     <p className="font-medium">Email</p>
                     <p className="text-sm text-muted-foreground">
-                      info@empresa.com
+                      mundosilica.ok@gmail.com
                     </p>
                   </div>
                 </div>
@@ -203,105 +206,162 @@ export default function ContactoPage() {
           </div>
 
           {/* Formulario de contacto */}
-          <Card>
+          <div className="flex flex-col items-center justify-center">
+            <Card className="w-full max-w-none">
+              <CardHeader>
+                <CardTitle>Envíanos un Mensaje</CardTitle>
+                <CardDescription>
+                  Completa el formulario y nos pondremos en contacto contigo
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="space-y-2">
+                      <Label htmlFor="nombre">Nombre *</Label>
+                      <Input
+                        id="nombre"
+                        placeholder="Tu nombre completo"
+                        value={formData.nombre}
+                        onChange={(e) => handleChange("nombre", e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email *</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="tu@email.com"
+                        value={formData.email}
+                        onChange={(e) => handleChange("email", e.target.value)}
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="space-y-2">
+                      <Label htmlFor="telefono">Teléfono</Label>
+                      <Input
+                        id="telefono"
+                        placeholder="+54 11 6123-4567"
+                        value={formData.telefono}
+                        onChange={(e) =>
+                          handleChange("telefono", e.target.value)
+                        }
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="asunto">Asunto *</Label>
+                      <Select
+                        onValueChange={(value) => handleChange("asunto", value)}
+                        value={formData.asunto}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Selecciona un asunto" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="consulta">
+                            Consulta General
+                          </SelectItem>
+                          <SelectItem value="productos">
+                            Información de Productos
+                          </SelectItem>
+                          <SelectItem value="servicios">Servicios</SelectItem>
+                          <SelectItem value="soporte">
+                            Soporte Técnico
+                          </SelectItem>
+                          <SelectItem value="otro">Otro</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="mensaje">Mensaje *</Label>
+                    <Textarea
+                      id="mensaje"
+                      placeholder="Cuéntanos cómo podemos ayudarte..."
+                      rows={5}
+                      value={formData.mensaje}
+                      onChange={(e) => handleChange("mensaje", e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <Button type="submit" className="w-full" disabled={isLoading}>
+                    <Send className="mr-2 h-4 w-4" />
+                    {isLoading ? "Enviando..." : "Enviar Mensaje"}
+                  </Button>
+
+                  {/* Mensajes de estado */}
+                  {submitStatus === "success" && (
+                    <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-md">
+                      <p className="text-green-800 text-sm">
+                        ¡Mensaje enviado correctamente! Te contactaremos pronto.
+                      </p>
+                    </div>
+                  )}
+
+                  {submitStatus === "error" && (
+                    <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-md">
+                      <p className="text-red-800 text-sm">{errorMessage}</p>
+                    </div>
+                  )}
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Sección de Redes Sociales */}
+        <div className="mt-12">
+          <Card className="max-w-2xl mx-auto">
             <CardHeader>
-              <CardTitle>Envíanos un Mensaje</CardTitle>
-              <CardDescription>
-                Completa el formulario y nos pondremos en contacto contigo
+              <CardTitle className="text-center">
+                Nuestras redes sociales
+              </CardTitle>
+              <CardDescription className="text-center">
+                Síguenos en nuestras redes sociales para mantenerte al día
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <Label htmlFor="nombre">Nombre *</Label>
-                    <Input
-                      id="nombre"
-                      placeholder="Tu nombre completo"
-                      value={formData.nombre}
-                      onChange={(e) => handleChange("nombre", e.target.value)}
-                      required
-                    />
+              <div className="flex justify-center space-x-8">
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#01959e]">
+                    <FacebookIcon width={20} height={20} stroke="white" />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="tu@email.com"
-                      value={formData.email}
-                      onChange={(e) => handleChange("email", e.target.value)}
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <Label htmlFor="telefono">Teléfono</Label>
-                    <Input
-                      id="telefono"
-                      placeholder="+54 11 6123-4567"
-                      value={formData.telefono}
-                      onChange={(e) => handleChange("telefono", e.target.value)}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="asunto">Asunto *</Label>
-                    <Select
-                      onValueChange={(value) => handleChange("asunto", value)}
-                      value={formData.asunto}
+                  <div>
+                    <p className="font-medium">Facebook</p>
+                    <Link
+                      href="https://www.facebook.com/mundosilica.ok"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-muted-foreground hover:text-[#01959e] transition-colors"
                     >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Selecciona un asunto" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="consulta">
-                          Consulta General
-                        </SelectItem>
-                        <SelectItem value="productos">
-                          Información de Productos
-                        </SelectItem>
-                        <SelectItem value="servicios">Servicios</SelectItem>
-                        <SelectItem value="soporte">Soporte Técnico</SelectItem>
-                        <SelectItem value="otro">Otro</SelectItem>
-                      </SelectContent>
-                    </Select>
+                      MundoSilica.ok
+                    </Link>
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="mensaje">Mensaje *</Label>
-                  <Textarea
-                    id="mensaje"
-                    placeholder="Cuéntanos cómo podemos ayudarte..."
-                    rows={5}
-                    value={formData.mensaje}
-                    onChange={(e) => handleChange("mensaje", e.target.value)}
-                    required
-                  />
+                <div className="flex items-center space-x-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#01959e]">
+                    <InstagramIcon width={20} height={20} stroke="white" />
+                  </div>
+                  <div>
+                    <p className="font-medium">Instagram</p>
+                    <Link
+                      href="https://www.instagram.com/mundosilica.ok/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-muted-foreground hover:text-[#01959e] transition-colors"
+                    >
+                      MundoSilica.ok
+                    </Link>
+                  </div>
                 </div>
-
-                <Button type="submit" className="w-full" disabled={isLoading}>
-                  <Send className="mr-2 h-4 w-4" />
-                  {isLoading ? "Enviando..." : "Enviar Mensaje"}
-                </Button>
-
-                {/* Mensajes de estado */}
-                {submitStatus === "success" && (
-                  <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-md">
-                    <p className="text-green-800 text-sm">
-                      ¡Mensaje enviado correctamente! Te contactaremos pronto.
-                    </p>
-                  </div>
-                )}
-
-                {submitStatus === "error" && (
-                  <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-md">
-                    <p className="text-red-800 text-sm">{errorMessage}</p>
-                  </div>
-                )}
-              </form>
+              </div>
             </CardContent>
           </Card>
         </div>
