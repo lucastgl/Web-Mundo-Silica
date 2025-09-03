@@ -11,7 +11,7 @@
         "Acabado impecable que inspira confianza"
       ],
       "Fotos": [
-        "/Proyectos/EdificioConcepcion.jpg"
+        "./Proyectos/EdificioConcepcion.jpg"
       ]
     },
     {
@@ -26,7 +26,7 @@
         "Acabados estéticos y fáciles de mantener"
       ],
       "Fotos": [
-        "/Proyectos/PilarGolfClub.jpg"
+        "./Proyectos/PilarGolfClub.jpg"
       ]
     },
     {
@@ -41,7 +41,7 @@
         "Creación de espacios atractivos y acogedores"
       ],
       "Fotos": [
-        "/Proyectos/BarrioSanSebastian.jpg"
+        "./Proyectos/BarrioSanSebastian.jpg"
       ]
     },
     {
@@ -56,7 +56,7 @@
         "Privacidad y estilo en ambientes modernos"
       ],
       "Fotos": [
-        "/Proyectos/TorreQuantum.jpg"
+        "./Proyectos/TorreQuantum.jpg"
       ]
     }
   ]
