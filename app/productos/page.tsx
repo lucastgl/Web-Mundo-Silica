@@ -40,7 +40,7 @@ export default function ProductosPage() {
             </div>
             <div className="aspect-video rounded-lg overflow-hidden">
               <Image
-                src="./Productos/EspejoYMampara.jpg"
+                src="/productosImagenes/EspejoYMampara.jpg"
                 width={600}
                 height={400}
                 alt="Productos para Baño"
@@ -64,7 +64,7 @@ export default function ProductosPage() {
             <div className="text-center space-y-3">
               <div className="aspect-square rounded-lg overflow-hidden">
                 <Image
-                  src="./Productos/MamparaFija.jpg"
+                  src="/productosImagenes/MamparaFija.jpg"
                   width={600}
                   height={400}
                   alt="Mampara Fija"
@@ -80,7 +80,7 @@ export default function ProductosPage() {
             <div className="text-center space-y-3">
               <div className="aspect-square rounded-lg overflow-hidden">
                 <Image
-                  src="./Productos/Mamparas/rebatible.jpg"
+                  src="/productosImagenes/Mamparas/rebatible.jpg"
                   width={600}
                   height={400}
                   alt="Mampara Rebatible"
@@ -97,7 +97,7 @@ export default function ProductosPage() {
             <div className="text-center space-y-3">
               <div className="aspect-square rounded-lg overflow-hidden">
                 <Image
-                  src="./Productos/Mamparas/corredizo.jpg"
+                  src="/productosImagenes/Mamparas/corredizo.jpg"
                   width={600}
                   height={400}
                   alt="Mampara Corrediza"
@@ -113,7 +113,7 @@ export default function ProductosPage() {
             <div className="text-center space-y-3">
               <div className="aspect-square rounded-lg overflow-hidden">
                 <Image
-                  src="./Productos/Mamparas/box.jpeg"
+                  src="/productosImagenes/Mamparas/box.jpeg"
                   width={600}
                   height={400}
                   alt="Box de Ducha"
@@ -141,7 +141,7 @@ export default function ProductosPage() {
           <div className="grid gap-8 md:grid-cols-2 items-center">
             <div className="aspect-video rounded-lg overflow-hidden">
               <Image
-                src="./Productos/Cerramiento/frente.jpg"
+                src="/productosImagenes/Cerramiento/frente.jpg"
                 width={600}
                 height={400}
                 alt="Cerramientos"
@@ -192,7 +192,7 @@ export default function ProductosPage() {
             </div>
             <div className="aspect-video rounded-lg overflow-hidden">
               <Image
-                src="./Productos/VidriosEspeciales/vidriosEspeciales.jpg"
+                src="/productosImagenes/VidriosEspeciales/vidriosEspeciales.jpg"
                 width={600}
                 height={400}
                 alt="Vidrios Especiales"
@@ -207,7 +207,7 @@ export default function ProductosPage() {
           <div className="grid gap-8 md:grid-cols-2 items-center">
             <div className="aspect-video rounded-lg overflow-hidden">
               <Image
-                src="./Productos/DecoracionHogar/principalB.jpg"
+                src="/productosImagenes/DecoracionHogar/principalB.jpg"
                 width={600}
                 height={400}
                 alt="Decoración del Hogar"
@@ -252,7 +252,7 @@ export default function ProductosPage() {
                 <Image
                   width={600}
                   height={400}
-                  src="./Productos/DecoracionHogar/puertaPlacard.jpg"
+                  src="/productosImagenes/DecoracionHogar/puertaPlacard.jpg"
                   alt="Espejo para Puerta de Placard"
                   className="object-cover w-full h-full"
                 />
@@ -269,7 +269,7 @@ export default function ProductosPage() {
                 <Image
                   width={600}
                   height={400}
-                  src="./Productos/DecoracionHogar/EspejoConLed.jpg"
+                  src="/productosImagenes/DecoracionHogar/EspejoConLed.jpg"
                   alt="Espejo con Led"
                   className="object-cover w-full h-full"
                 />
@@ -285,7 +285,7 @@ export default function ProductosPage() {
                 <Image
                   width={600}
                   height={400}
-                  src="./Productos/DecoracionHogar/EspejoConForma.jpg"
+                  src="/productosImagenes/DecoracionHogar/EspejoConForma.jpg"
                   alt="Espejo con Formas"
                   className="object-cover w-full h-full"
                 />

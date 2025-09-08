@@ -1,7 +1,9 @@
 "use client";
 
-import type React from "react";
-import { useState } from "react";
+import React from "react";
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
+import emailjs from "@emailjs/browser";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import FacebookIcon from "@/public/svg/FacebookIcon";
 import InstagramIcon from "@/public/svg/InstagramIcon";
@@ -33,101 +35,102 @@ import {
 
 import preguntasFrecuentes from "@/mocks/preguntas-frecuentes.json";
 
+// Tipos
+interface FormValues {
+  nombre: string;
+  email: string;
+  telefono: string;
+  asunto: string;
+  mensaje: string;
+}
+
+interface StatusType {
+  type: 'success' | 'error' | 'sending';
+  message?: string;
+}
+
+interface FormikHelpers {
+  resetForm: () => void;
+  setSubmitting: (isSubmitting: boolean) => void;
+  setStatus: (status: StatusType) => void;
+}
+
+// Validaciones
+const VALIDACION_EMAIL = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
+
+// Variables de entorno
+const SERVICE_ID = process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID || "";
+const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID || "";
+const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY || "";
+
 export default function ContactoPage() {
-  const [formData, setFormData] = useState({
+  const getInitialValues = (): FormValues => ({
     nombre: "",
     email: "",
     telefono: "",
     asunto: "",
-    mensaje: "",
+    mensaje: ""
   });
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
-  const [errorMessage, setErrorMessage] = useState("");
+  const getValidationSchema = () => (
+    Yup.lazy(() =>
+      Yup.object().shape({
+        nombre: Yup.string()
+          .min(2, 'El nombre debe tener al menos 2 caracteres')
+          .required("Campo Obligatorio"),
+        email: Yup.string()
+          .email("Ingrese un formato de email válido")
+          .required("Campo Obligatorio")
+          .matches(VALIDACION_EMAIL, 'Ingrese un formato de email válido'),
+        telefono: Yup.string()
+          .min(8, 'El teléfono debe tener al menos 8 caracteres'),
+        asunto: Yup.string()
+          .min(3, 'El asunto debe tener al menos 3 caracteres')
+          .required('Campo Obligatorio'),
+        mensaje: Yup.string()
+          .min(10, 'El mensaje debe tener al menos 10 caracteres')
+          .max(500, 'El mensaje no debe superar los 500 caracteres')
+          .required('Campo Obligatorio'),
+      })
+    )
+  );
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setSubmitStatus("idle");
-    setErrorMessage("");
+  const onSubmit = (values: FormValues, { resetForm, setSubmitting, setStatus }: FormikHelpers) => {
+    console.log(values);
+    setSubmitting(true);
+    setStatus({ type: 'sending' });
 
-    // Validación del lado del cliente
-    const camposFaltantes = [];
-    if (!formData.nombre.trim()) camposFaltantes.push("Nombre");
-    if (!formData.email.trim()) camposFaltantes.push("Email");
-    if (!formData.asunto.trim()) camposFaltantes.push("Asunto");
-    if (!formData.mensaje.trim()) camposFaltantes.push("Mensaje");
+    // Mapear los valores al template de EmailJS basado en template.html
+    const templateParams = {
+      name_from: values.nombre,
+      topic: values.asunto,
+      contact_email: values.email,
+      contact_number: values.telefono || "No proporcionado",
+      message: values.mensaje
+    };
 
-    if (camposFaltantes.length > 0) {
-      setSubmitStatus("error");
-      setErrorMessage(
-        `Por favor completa los siguientes campos: ${camposFaltantes.join(", ")}`
-      );
-      setIsLoading(false);
-      return;
-    }
-
-    // Validación de email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      setSubmitStatus("error");
-      setErrorMessage("Por favor ingresa un email válido");
-      setIsLoading(false);
-      return;
-    }
-
-    try {
-      const response = await fetch("/api/send", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      .then((response) => {
+        console.log('Email enviado exitosamente:', response);
+        setStatus({ type: 'success' });
+        resetForm();
+      })
+      .catch((error) => {
+        console.error('Error enviando email:', error);
+        setStatus({ type: 'error', message: 'Error al enviar el mensaje. Por favor, intenta nuevamente.' });
+      })
+      .finally(() => {
+        setSubmitting(false);
       });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setSubmitStatus("success");
-        setFormData({
-          nombre: "",
-          email: "",
-          telefono: "",
-          asunto: "",
-          mensaje: "",
-        });
-        console.log("Email enviado:", result);
-      } else {
-        setSubmitStatus("error");
-        // Usar el mensaje específico del servidor si está disponible
-        setErrorMessage(
-          result.message ||
-            "Hubo un error al enviar el mensaje. Por favor, intenta nuevamente."
-        );
-        console.error("Error:", result);
-      }
-    } catch (error) {
-      setSubmitStatus("error");
-      setErrorMessage(
-        "Error de conexión. Por favor, verifica tu conexión a internet e intenta nuevamente."
-      );
-      console.error("Error enviando formulario:", error);
-    } finally {
-      setIsLoading(false);
-    }
   };
 
-  const handleChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-    // Limpiar el estado de error cuando el usuario empiece a escribir
-    if (submitStatus === "error") {
-      setSubmitStatus("idle");
-      setErrorMessage("");
-    }
-  };
+  const { values, setFieldValue, errors, handleSubmit, isSubmitting, status } = useFormik({
+    initialValues: getInitialValues(),
+    validationSchema: getValidationSchema(),
+    validateOnChange: false,
+    validateOnBlur: false,
+    onSubmit,
+  });
 
   return (
     <div className="min-h-screen w-full bg-[#E6FFFF] flex justify-center items-center">
@@ -221,22 +224,30 @@ export default function ContactoPage() {
                       <Label htmlFor="nombre">Nombre *</Label>
                       <Input
                         id="nombre"
+                        name="nombre"
                         placeholder="Tu nombre completo"
-                        value={formData.nombre}
-                        onChange={(e) => handleChange("nombre", e.target.value)}
-                        required
+                        value={values.nombre}
+                        onChange={(e) => setFieldValue("nombre", e.target.value)}
+                        className={errors.nombre ? "border-red-500" : ""}
                       />
+                      {errors.nombre && (
+                        <p className="text-sm text-red-600">{errors.nombre}</p>
+                      )}
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email *</Label>
                       <Input
                         id="email"
+                        name="email"
                         type="email"
                         placeholder="tu@email.com"
-                        value={formData.email}
-                        onChange={(e) => handleChange("email", e.target.value)}
-                        required
+                        value={values.email}
+                        onChange={(e) => setFieldValue("email", e.target.value)}
+                        className={errors.email ? "border-red-500" : ""}
                       />
+                      {errors.email && (
+                        <p className="text-sm text-red-600">{errors.email}</p>
+                      )}
                     </div>
                   </div>
 
@@ -245,36 +256,42 @@ export default function ContactoPage() {
                       <Label htmlFor="telefono">Teléfono</Label>
                       <Input
                         id="telefono"
+                        name="telefono"
                         placeholder="+54 11 6123-4567"
-                        value={formData.telefono}
-                        onChange={(e) =>
-                          handleChange("telefono", e.target.value)
-                        }
+                        value={values.telefono}
+                        onChange={(e) => setFieldValue("telefono", e.target.value)}
+                        className={errors.telefono ? "border-red-500" : ""}
                       />
+                      {errors.telefono && (
+                        <p className="text-sm text-red-600">{errors.telefono}</p>
+                      )}
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="asunto">Asunto *</Label>
                       <Select
-                        onValueChange={(value) => handleChange("asunto", value)}
-                        value={formData.asunto}
+                        onValueChange={(value) => setFieldValue("asunto", value)}
+                        value={values.asunto}
                       >
-                        <SelectTrigger>
+                        <SelectTrigger className={errors.asunto ? "border-red-500" : ""}>
                           <SelectValue placeholder="Selecciona un asunto" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="consulta">
+                          <SelectItem value="Consulta General">
                             Consulta General
                           </SelectItem>
-                          <SelectItem value="productos">
+                          <SelectItem value="Información de Productos">
                             Información de Productos
                           </SelectItem>
-                          <SelectItem value="servicios">Servicios</SelectItem>
-                          <SelectItem value="soporte">
+                          <SelectItem value="Servicios">Servicios</SelectItem>
+                          <SelectItem value="Soporte Técnico">
                             Soporte Técnico
                           </SelectItem>
-                          <SelectItem value="otro">Otro</SelectItem>
+                          <SelectItem value="Otro">Otro</SelectItem>
                         </SelectContent>
                       </Select>
+                      {errors.asunto && (
+                        <p className="text-sm text-red-600">{errors.asunto}</p>
+                      )}
                     </div>
                   </div>
 
@@ -282,21 +299,25 @@ export default function ContactoPage() {
                     <Label htmlFor="mensaje">Mensaje *</Label>
                     <Textarea
                       id="mensaje"
+                      name="mensaje"
                       placeholder="Cuéntanos cómo podemos ayudarte..."
                       rows={5}
-                      value={formData.mensaje}
-                      onChange={(e) => handleChange("mensaje", e.target.value)}
-                      required
+                      value={values.mensaje}
+                      onChange={(e) => setFieldValue("mensaje", e.target.value)}
+                      className={errors.mensaje ? "border-red-500" : ""}
                     />
+                    {errors.mensaje && (
+                      <p className="text-sm text-red-600">{errors.mensaje}</p>
+                    )}
                   </div>
 
-                  <Button type="submit" className="w-full" disabled={isLoading}>
+                  <Button type="submit" className="w-full" disabled={isSubmitting}>
                     <Send className="mr-2 h-4 w-4" />
-                    {isLoading ? "Enviando..." : "Enviar Mensaje"}
+                    {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
                   </Button>
 
                   {/* Mensajes de estado */}
-                  {submitStatus === "success" && (
+                  {status?.type === "success" && (
                     <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-md">
                       <p className="text-green-800 text-sm">
                         ¡Mensaje enviado correctamente! Te contactaremos pronto.
@@ -304,9 +325,17 @@ export default function ContactoPage() {
                     </div>
                   )}
 
-                  {submitStatus === "error" && (
+                  {status?.type === "error" && (
                     <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-md">
-                      <p className="text-red-800 text-sm">{errorMessage}</p>
+                      <p className="text-red-800 text-sm">{status.message}</p>
+                    </div>
+                  )}
+
+                  {status?.type === "sending" && (
+                    <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-md">
+                      <p className="text-blue-800 text-sm">
+                        Enviando mensaje...
+                      </p>
                     </div>
                   )}
                 </form>
